@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  apache1:
+    image: httpd:latest
+    container_name: apache
+    ports:
+      - "8080:80"
+    volumes:
+      - ./apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - ./apache/vhosts:/usr/local/apache2/conf/vhosts
+      - ./apache/www:/usr/local/apache2/www
+
+
+  apache2:
+    image: httpd:latest
+    container_name: apache2
+    ports:
+      - "8081:80"
+
+  apache3:
+    image: httpd:latest
+    container_name: apache3
+    ports:
+      - "8082:80"
